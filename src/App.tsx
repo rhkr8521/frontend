@@ -1,25 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { Map, MapMarker, ZoomControl } from 'react-kakao-maps-sdk';
+import useGeoLocation from './hooks/useGeolocation';
 
 function App() {
+  const location = useGeoLocation();
+  let nowLocation = { lat: 36.626704, lng: 127.456214 };
+
+  if (location.loaded) {
+    nowLocation = {
+      lat: location.coordinates?.lat || 36.626704,
+      lng: location.coordinates?.lng || 127.456214,
+    };
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Map
+      center={{ lat: nowLocation.lat, lng: nowLocation.lng }}
+      style={{ width: '500px', height: '600px', textAlign: 'center' }}
+    >
+      {/* 현위치 표시 */}
+      <MapMarker
+        position={{ lat: nowLocation.lat, lng: nowLocation.lng }}
+      ></MapMarker>
+      <MapMarker position={{ lat: 36.626704, lng: 127.456214 }}>
+        <div style={{ color: '#000' }}>충북대 입니다!</div>
+      </MapMarker>
+      <ZoomControl position={kakao.maps.ControlPosition.TOPRIGHT} />
+    </Map>
   );
 }
 
