@@ -39,7 +39,7 @@ const useGeolocation = () => {
     if (!('geolocation' in navigator)) {
       onError({
         code: 0,
-        message: 'Geolocation not supported',
+        message: '위치 정보를 활용할 수 없어요',
       });
     }
     navigator.geolocation.getCurrentPosition(onSuccess, onError);
