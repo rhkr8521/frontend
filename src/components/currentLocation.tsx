@@ -1,4 +1,4 @@
-import { MapMarker, Circle } from 'react-kakao-maps-sdk';
+import { Circle } from 'react-kakao-maps-sdk';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function CurrentLocation(props: any) {
@@ -7,10 +7,7 @@ function CurrentLocation(props: any) {
   return (
     <div>
       <Circle
-        center={{
-          lat: props.data.lat,
-          lng: props.data.lng,
-        }}
+        center={props.data}
         radius={50}
         strokeWeight={3} // 선의 두께입니다
         strokeColor={'#75B8FA'} // 선의 색깔입니다
@@ -19,9 +16,6 @@ function CurrentLocation(props: any) {
         fillColor={'#CFE7FF'} // 채우기 색깔입니다
         fillOpacity={0.5} // 채우기 불투명도 입니다
       />
-      <MapMarker position={{ lat: 36.626704, lng: 127.456214 }}>
-        <div style={{ color: '#000' }}>충북대 입니다!</div>
-      </MapMarker>
     </div>
   );
 }
