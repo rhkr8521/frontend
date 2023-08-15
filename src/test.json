@@ -1,0 +1,90 @@
+[
+  {
+    "tag": "쓰레기통",
+    "content": "안녕하세요 테스트 데이터입니다",
+    "writer": "anyone",
+    "lat": 36.628,
+    "lng": 127.46988,
+    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005"
+  },
+  {
+    "tag": "쓰레기통",
+    "content": "안녕하세요 테스트 데이터입니다",
+    "writer": "anyone",
+    "lat": 36.63,
+    "lng": 127.4811,
+    "img": null
+  },
+  {
+    "tag": "쓰레기통",
+    "content": "안녕하세요 테스트 데이터입니다",
+    "writer": "anyone",
+    "lat": 36.3,
+    "lng": 127.4702,
+    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005"
+  },
+  {
+    "tag": "화장실",
+    "content": "안녕하세요 테스트 데이터입니다",
+    "writer": "anyone",
+    "lat": 36.628,
+    "lng": 127.475,
+    "img": null
+  },
+  {
+    "tag": "공사중",
+    "content": "안녕하세요 테스트 데이터입니다",
+    "writer": "anyone",
+    "lat": 36.628,
+    "lng": 127.5,
+    "img": null
+  },
+  {
+    "tag": null,
+    "content": "안녕하세요 테스트 데이터입니다",
+    "writer": "anyone",
+    "lat": 36.626,
+    "lng": 127.46988,
+    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005"
+  },
+  {
+    "tag": null,
+    "content": "안녕하세요 테스트 데이터입니다",
+    "writer": "anyone",
+    "lat": 36.626,
+    "lng": 127.341,
+    "img": null
+  },
+  {
+    "tag": null,
+    "content": "안녕하세요 테스트 데이터입니다",
+    "writer": "anyone",
+    "lat": 36.625,
+    "lng": 127.46988,
+    "img": null
+  },
+  {
+    "tag": "화장실",
+    "content": "안녕하세요 테스트 데이터입니다",
+    "writer": "anyone",
+    "lat": 36.2323,
+    "lng": 127.341,
+    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005"
+  },
+  {
+    "tag": null,
+    "content": "안녕하세요 테스트 데이터입니다",
+    "writer": "anyone",
+    "lat": 36.623,
+    "lng": 127.463,
+    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005"
+  },
+  {
+    "tag": null,
+    "content": "안녕하세요 테스트 데이터입니다",
+    "writer": "anyone",
+    "lat": 36.6279,
+    "lng": 127.464,
+    "img": null
+  }
+]
