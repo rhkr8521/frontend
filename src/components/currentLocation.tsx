@@ -7,10 +7,7 @@ function CurrentLocation(props: any) {
   return (
     <div>
       <Circle
-        center={{
-          lat: props.data.lat,
-          lng: props.data.lng,
-        }}
+        center={props.data}
         radius={50}
         strokeWeight={3} // 선의 두께입니다
         strokeColor={'#75B8FA'} // 선의 색깔입니다

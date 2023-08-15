@@ -1,8 +1,7 @@
 import './App.css';
-import { Map, ZoomControl } from 'react-kakao-maps-sdk';
 import useGeoLocation from './hooks/useGeolocation';
-import CurrentLocation from './components/currentLocation';
-import Markers from './components/markers';
+import MainPage from './components/mainPage';
+import Loading from './components/loading';
 
 function App() {
   const location = useGeoLocation();
@@ -10,30 +9,24 @@ function App() {
 
   location.loaded; //위치데이터 가져오기
 
-  if (location.coordinates) {
+  if (location.coordinates?.lat) {
     nowLocation = {
       lat: location.coordinates.lat,
       lng: location.coordinates.lng,
     };
-  }
 
-  return (
-    <>
-      <Map
-        center={nowLocation}
-        style={{
-          width: '500px',
-          height: '600px',
-          display: 'block',
-          margin: '0 auto',
-        }}
-      >
-        <CurrentLocation data={nowLocation} />
-        <Markers />
-        <ZoomControl position={kakao.maps.ControlPosition.TOPRIGHT} />
-      </Map>
-    </>
-  );
+    return (
+      <>
+        <MainPage data={nowLocation} />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Loading />
+      </>
+    );
+  }
 }
 
 export default App;
