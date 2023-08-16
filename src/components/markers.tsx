@@ -15,6 +15,7 @@ function Markers() {
             lat: item.lat,
             lng: item.lng,
             writer: item.writer,
+            date: item.date,
           }}
         />
       ))}
