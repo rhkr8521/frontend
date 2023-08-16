@@ -34,6 +34,7 @@ function Marker(props: any) {
                 }}
               >
                 {data.tag || <div> </div>}
+                <span>{data.writer}</span>
                 <div onClick={() => setIsOpen(false)}>
                   <img
                     src="https://cdn-icons-png.flaticon.com/512/75/75519.png"
@@ -58,6 +59,7 @@ function Marker(props: any) {
                 <div className="desc" style={{ margin: '0.5em' }}>
                   <div className="ellipsis">{data.content}</div>
                 </div>
+                <span>{data.date}</span>
               </div>
             </div>
           </div>
