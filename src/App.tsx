@@ -1,33 +1,32 @@
 import './App.css';
-import { Map, MapMarker, ZoomControl } from 'react-kakao-maps-sdk';
 import useGeoLocation from './hooks/useGeolocation';
+import MainPage from './components/mainPage';
+import Loading from './components/loading';
 
 function App() {
   const location = useGeoLocation();
-  let nowLocation = { lat: 36.626704, lng: 127.456214 };
+  let nowLocation = { lat: 0, lng: 0 };
 
-  if (location.loaded) {
+  location.loaded; //위치데이터 가져오기
+
+  if (location.coordinates?.lat) {
     nowLocation = {
-      lat: location.coordinates?.lat || 36.626704,
-      lng: location.coordinates?.lng || 127.456214,
+      lat: location.coordinates.lat,
+      lng: location.coordinates.lng,
     };
-  }
 
-  return (
-    <Map
-      center={{ lat: nowLocation.lat, lng: nowLocation.lng }}
-      style={{ width: '500px', height: '600px', textAlign: 'center' }}
-    >
-      {/* 현위치 표시 */}
-      <MapMarker
-        position={{ lat: nowLocation.lat, lng: nowLocation.lng }}
-      ></MapMarker>
-      <MapMarker position={{ lat: 36.626704, lng: 127.456214 }}>
-        <div style={{ color: '#000' }}>충북대 입니다!</div>
-      </MapMarker>
-      <ZoomControl position={kakao.maps.ControlPosition.TOPRIGHT} />
-    </Map>
-  );
+    return (
+      <>
+        <MainPage data={nowLocation} />
+      </>
+    );
+  } else {
+    return (
+      <>
+        <Loading />
+      </>
+    );
+  }
 }
 
 export default App;
