@@ -5,7 +5,8 @@
     "writer": "anyone",
     "lat": 36.628,
     "lng": 127.46988,
-    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005"
+    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005",
+    "date": "2023-08-15"
   },
   {
     "tag": "쓰레기통",
@@ -13,7 +14,8 @@
     "writer": "anyone",
     "lat": 36.63,
     "lng": 127.4811,
-    "img": null
+    "img": null,
+    "date": "2023-08-15"
   },
   {
     "tag": "쓰레기통",
@@ -21,7 +23,8 @@
     "writer": "anyone",
     "lat": 36.3,
     "lng": 127.4702,
-    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005"
+    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005",
+    "date": "2023-08-15"
   },
   {
     "tag": "화장실",
@@ -29,7 +32,8 @@
     "writer": "anyone",
     "lat": 36.628,
     "lng": 127.475,
-    "img": null
+    "img": null,
+    "date": "2023-08-15"
   },
   {
     "tag": "공사중",
@@ -37,7 +41,8 @@
     "writer": "anyone",
     "lat": 36.628,
     "lng": 127.5,
-    "img": null
+    "img": null,
+    "date": "2023-08-15"
   },
   {
     "tag": null,
@@ -45,7 +50,8 @@
     "writer": "anyone",
     "lat": 36.626,
     "lng": 127.46988,
-    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005"
+    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005",
+    "date": "2023-08-15"
   },
   {
     "tag": null,
@@ -53,7 +59,8 @@
     "writer": "anyone",
     "lat": 36.626,
     "lng": 127.341,
-    "img": null
+    "img": null,
+    "date": "2023-08-15"
   },
   {
     "tag": null,
@@ -61,7 +68,8 @@
     "writer": "anyone",
     "lat": 36.625,
     "lng": 127.46988,
-    "img": null
+    "img": null,
+    "date": "2023-08-15"
   },
   {
     "tag": "화장실",
@@ -69,7 +77,8 @@
     "writer": "anyone",
     "lat": 36.2323,
     "lng": 127.341,
-    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005"
+    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005",
+    "date": "2023-08-15"
   },
   {
     "tag": null,
@@ -77,7 +86,8 @@
     "writer": "anyone",
     "lat": 36.623,
     "lng": 127.463,
-    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005"
+    "img": "//t1.daumcdn.net/thumb/C84x76/?fname=http://t1.daumcdn.net/cfile/2170353A51B82DE005",
+    "date": "2023-08-15"
   },
   {
     "tag": null,
@@ -85,6 +95,7 @@
     "writer": "anyone",
     "lat": 36.6279,
     "lng": 127.464,
-    "img": null
+    "img": null,
+    "date": "2023-08-15"
   }
 ]

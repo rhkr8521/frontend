@@ -5,6 +5,7 @@ import { MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
 function Marker(props: any) {
   const [isOpen, setIsOpen] = useState(false);
   const data = props.data;
+  console.log(data);
 
   const markerPosition = {
     lat: data.lat,
@@ -34,6 +35,7 @@ function Marker(props: any) {
                 }}
               >
                 {data.tag || <div> </div>}
+                <span>{data.writer}</span>
                 <div onClick={() => setIsOpen(false)}>
                   <img
                     src="https://cdn-icons-png.flaticon.com/512/75/75519.png"
@@ -55,8 +57,19 @@ function Marker(props: any) {
                     />
                   </div>
                 )}
-                <div className="desc" style={{ margin: '0.5em' }}>
+                <div
+                  className="desc"
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
+                    margin: '0.5em',
+                  }}
+                >
                   <div className="ellipsis">{data.content}</div>
+                  <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                    {data.date}
+                  </div>
                 </div>
               </div>
             </div>

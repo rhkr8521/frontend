@@ -1,6 +1,14 @@
 function Loading() {
   return (
-    <div style={{ margin: '50% 0 50% 0' }}>
+    <div
+      style={{
+        height: '100vh',
+        display: 'flex', // Flexbox를 사용하여 컨텐츠를 가운데 정렬
+        flexDirection: 'column', // 세로 방향으로 정렬
+        justifyContent: 'center', // 수직 가운데 정렬
+        alignItems: 'center', // 수평 가운데 정렬
+      }}
+    >
       <h3 style={{ textAlign: 'center' }}>Loading</h3>
       <img
         src={'public_assets/Loading.gif'}
@@ -10,4 +18,5 @@ function Loading() {
     </div>
   );
 }
+
 export default Loading;
