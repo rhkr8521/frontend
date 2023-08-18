@@ -23,15 +23,17 @@ function Marker(props: any) {
               style={{
                 backgroundColor: 'white',
                 borderRadius: '10px',
-                border: '1px solid #ccc',
+                border: '2px solid #ccc',
               }}
             >
               <div
                 className="title"
                 style={{
-                  margin: '0.5em',
+                  padding: '0.5em',
                   display: 'flex',
                   justifyContent: 'space-between',
+                  borderRadius: '10px 10px 0 0',
+                  backgroundColor: '#e9e9e9',
                 }}
               >
                 {data.tag || <div> </div>}
@@ -45,7 +47,6 @@ function Marker(props: any) {
                   />
                 </div>
               </div>
-              <hr></hr>
               <div className="body" style={{ display: 'flex' }}>
                 {data.img && ( // 여기서 data.img 값이 null이 아닌 경우에만 아래 div를 출력
                   <div className="img" style={{ margin: '0.5em' }}>
@@ -64,9 +65,16 @@ function Marker(props: any) {
                     flexDirection: 'column',
                     justifyContent: 'space-between',
                     margin: '0.5em',
+                    maxHeight: '6.3em',
+                    width: '12em',
                   }}
                 >
-                  <div className="ellipsis">{data.content}</div>
+                  <div
+                    className="ellipsis"
+                    style={{ overflow: 'auto', whiteSpace: 'normal' }}
+                  >
+                    {data.content}
+                  </div>
                   <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                     {data.date}
                   </div>
