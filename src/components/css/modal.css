@@ -1,0 +1,45 @@
+.modal {
+  background-color: white;
+}
+
+.modal h2 {
+  margin-bottom: 10px;
+}
+
+.modal select,
+.modal input {
+  width: auto;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.save-button,
+.close-button {
+  padding: 8px 20px;
+  margin-left: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.save-button {
+  background-color: skyblue;
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.save-button:hover {
+  background-color: deepskyblue;
+}
+
+.close-button {
+  background-color: transparent;
+  color: #333;
+}
