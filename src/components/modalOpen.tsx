@@ -72,9 +72,7 @@ function ModalOpen(props: any) {
             <p>
               태그:
               <select name="tag" value={values.tag} onChange={handleChange}>
-                <option selected value="기타">
-                  기타
-                </option>
+                <option value="기타">기타</option>
                 <option value="쓰레기통">쓰레기통</option>
                 <option value="화장실">화장실</option>
                 <option value="공사중">공사중</option>
