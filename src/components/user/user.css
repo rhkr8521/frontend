@@ -1,0 +1,90 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background: white;
+}
+
+.container {
+  display: block;
+  max-width: 680px;
+  width: 80%;
+  margin: 120px auto;
+}
+
+h1 {
+  color: #e91e63;
+  font-size: 48px;
+  letter-spacing: -3px;
+  text-align: center;
+  margin: 120px 0 80px 0;
+  transition: 0.2s linear;
+}
+
+form {
+  width: 100%;
+  max-width: 680px;
+  margin: 40px auto 10px;
+}
+form .input__block {
+  margin: 20px auto;
+  display: block;
+  position: relative;
+}
+form .input__block input {
+  display: block;
+  width: 90%;
+  max-width: 680px;
+  height: 50px;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: none;
+  background: rgba(15, 19, 42, 0.1);
+  color: rgba(15, 19, 42, 0.3);
+  padding: 0 0 0 15px;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+}
+
+form .input__block input.repeat__password {
+  opacity: 0;
+  display: none;
+  transition: 0.2s linear;
+}
+form .signin__btn {
+  background: #e91e63;
+  color: white;
+  display: block;
+  width: 92.5%;
+  max-width: 680px;
+  height: 50px;
+  border-radius: 8px;
+  margin: 0 auto;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 15px 30px rgba(233, 30, 99, 0.36);
+  transition: 0.2s linear;
+}
+form .signin__btn:hover {
+  box-shadow: 0 0 0 rgba(233, 30, 99, 0);
+}
+
+form .signup__btn {
+    background: #e91e63;
+    color: white;
+    display: block;
+    width: 92.5%;
+    max-width: 680px;
+    height: 50px;
+    border-radius: 8px;
+    margin: 0 auto;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    box-shadow: 0 15px 30px rgba(233, 30, 99, 0.36);
+    transition: 0.2s linear;
+  }
+  form .signup__btn:hover {
+    box-shadow: 0 0 0 rgba(233, 30, 99, 0);
+  }
