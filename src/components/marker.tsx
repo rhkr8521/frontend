@@ -5,7 +5,6 @@ import { MapMarker, CustomOverlayMap } from 'react-kakao-maps-sdk';
 function Marker(props: any) {
   const [isOpen, setIsOpen] = useState(false);
   const data = props.data;
-  console.log(data);
 
   const markerPosition = {
     lat: data.lat,

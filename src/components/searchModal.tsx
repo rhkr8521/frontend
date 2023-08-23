@@ -3,7 +3,9 @@ import Modal from 'react-modal';
 import { useState } from 'react';
 import './css/modal.css';
 
-function ModalOpen(props: any) {
+function SearchModal(props: any) {
+  const [modal, setModal] = useState(true);
+
   const customModalStyles: ReactModal.Styles = {
     overlay: {
       backgroundColor: ' rgba(0, 0, 0, 0.4)',
@@ -17,7 +19,7 @@ function ModalOpen(props: any) {
     content: {
       width: '80%',
       zIndex: '12',
-      minHeight: '47%',
+      maxHeight: '28%',
       position: 'absolute',
       top: '50%',
       left: '50%',
@@ -31,12 +33,7 @@ function ModalOpen(props: any) {
   };
 
   const [values, setValues] = useState({
-    tag: '',
-    content: '',
-    lat: props.data.lat,
-    lng: props.data.lng,
-    image: '',
-    user: 'anyone', //유저이 이름을 가져와서 여기 대입
+    search: '',
   });
 
   const handleChange = (e: any) => {
@@ -48,62 +45,40 @@ function ModalOpen(props: any) {
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    alert(JSON.stringify(values, null, 2) + '\n메모가 추가되었습니다');
-    props.close(); //입력 창 닫기
-    props.markerSign(); //마커 추가 활성화 버튼 끄기
+    alert(JSON.stringify(values, null, 2) + '을 검색했습니다');
+    setModal(false); //입력 창 닫기
   };
 
   return (
     <>
       <Modal
-        isOpen={props.modalState}
-        onRequestClose={props.close}
+        isOpen={modal}
+        onRequestClose={props.endBtn}
         style={customModalStyles}
         ariaHideApp={false}
         shouldCloseOnOverlayClick={false}
       >
         <div className="modal">
-          <h2>메모 작성</h2>
+          <h2>검색어 입력</h2>
           <form
             onSubmit={handleSubmit}
             method="post"
             encType="multipart/form-data"
           >
             <p>
-              태그:
-              <select name="tag" value={values.tag} onChange={handleChange}>
-                <option value="기타">기타</option>
-                <option value="쓰레기통">쓰레기통</option>
-                <option value="화장실">화장실</option>
-                <option value="공사중">공사중</option>
-              </select>
-            </p>
-            <p>
-              내용:
+              검색할 내용 :
               <input
                 type="text"
-                name="content"
-                value={values.content}
+                name="search"
+                value={values.search}
                 onChange={handleChange}
-              />
-            </p>
-            <p>
-              이미지:
-              <input
-                className="upload-name"
-                type="file"
-                name="image"
-                accept="image/*"
-                value={values.image}
-                onChange={handleChange}
-                placeholder="이미지를 업로드 하세요"
               />
             </p>
             <div className="buttons">
               <button type="submit" className="save-button">
-                저장
+                검색
               </button>
-              <button onClick={props.close} className="close-button">
+              <button onClick={props.endBtn} className="close-button">
                 닫기
               </button>
             </div>
@@ -113,4 +88,4 @@ function ModalOpen(props: any) {
     </>
   );
 }
-export default ModalOpen;
+export default SearchModal;

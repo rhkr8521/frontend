@@ -1,23 +1,26 @@
 import './css/menu.css';
-import ModalOpen from './modalOpen';
+import AddModal from './addModal';
 import { MapMarker } from 'react-kakao-maps-sdk';
 import { useState } from 'react';
+import Tags from './tags';
+import SearchModal from './searchModal';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Buttons(props: any) {
   const location = props.data;
   const [toggle, setToggle] = useState(false);
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [addModal, setAddModal] = useState(false);
+  const [searchBtn, setSearchBtn] = useState(false);
+
   const clickedToggle = () => {
     setToggle((prev) => !prev);
   };
   const modalClose = () => {
-    setModalIsOpen(false);
+    setAddModal(false);
   };
-
-  // console.log('toggle', toggle);
-  console.log('modal', modalIsOpen);
-  // console.log('위치', location);
+  const clickSearchBtn = () => {
+    setSearchBtn((prev) => !prev);
+  };
 
   return (
     <div>
@@ -26,7 +29,7 @@ function Buttons(props: any) {
         <button
           className="customButton"
           style={{
-            bottom: '8em',
+            bottom: '11em',
             background:
               'url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/img_search.png) no-repeat -194px -350px',
           }}
@@ -37,7 +40,7 @@ function Buttons(props: any) {
         <button
           className="customButton"
           style={{
-            bottom: '8em',
+            bottom: '11em',
             background:
               'url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/img_search.png) no-repeat -194px -450px',
           }}
@@ -62,6 +65,30 @@ function Buttons(props: any) {
             'url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/img_search.png) no-repeat -153px -450px',
         }}
       ></button>
+
+      {searchBtn ? (
+        <button
+          className="customButton"
+          style={{
+            bottom: '8em',
+            background:
+              'url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/ico_search.png) no-repeat -40px -122px',
+            backgroundColor: '#258fff',
+          }}
+          onClick={clickSearchBtn}
+        ></button>
+      ) : (
+        <button
+          className="customButton"
+          style={{
+            bottom: '8em',
+            background:
+              'url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/ico_search.png) no-repeat -40px -122px',
+            backgroundColor: 'white',
+          }}
+          onClick={clickSearchBtn}
+        ></button>
+      )}
       {toggle && (
         <>
           <MapMarker
@@ -77,19 +104,21 @@ function Buttons(props: any) {
               },
             }}
             onClick={() => {
-              setModalIsOpen(true);
+              setAddModal(true);
             }}
           />
         </>
       )}
-      {modalIsOpen && (
-        <ModalOpen
+      {addModal && (
+        <AddModal
           data={location}
           close={modalClose}
-          modalState={modalIsOpen}
+          modalState={addModal}
           markerSign={clickedToggle}
         />
       )}
+      {/* 검색 버튼 활성화에 따라 tag와 검색 컴포넌트 구분 */}
+      {searchBtn ? <SearchModal endBtn={clickSearchBtn} /> : <Tags />}
     </div>
   );
 }
