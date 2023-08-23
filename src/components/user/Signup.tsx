@@ -1,32 +1,81 @@
+import { SetStateAction, useState } from 'react';
 import './user.css';
 
 // 회원가입
 function Signup() {
+  const [Id, setId] = useState('');
+  const [password, setPassword] = useState('');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [checkingPassword, setCheckingPassword] = useState('');
+  const [message, setMessage] = useState('');
+  const [blankMessage, setBlankMessage] = useState('');
+  const onChangeId = (e: { target: { value: SetStateAction<string> } }) => {
+    setId(e.target.value);
+  };
+  const onChangePassword = (e: {
+    target: { value: SetStateAction<string> };
+  }) => {
+    setPassword(e.target.value);
+  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const onChangeCheckingPassword = (e: { target: { value: any } }) => {
+    const currentPassword = e.target.value;
+    setCheckingPassword(currentPassword);
+    if (password !== currentPassword) {
+      setMessage('비밀번호가 다릅니다.');
+    } else {
+      setMessage('');
+    }
+    if (currentPassword === '') setMessage('');
+  };
+  const checkingBlank = () => {
+    if (Id && password && checkingPassword) {
+      setBlankMessage('');
+    } else {
+      setBlankMessage('빈칸이 있습니다.');
+    }
+  };
   return (
     <div className="container">
       <h1>회원가입</h1>
 
       <form action="" method="post">
         <div className="input__block">
-          <input type="text" placeholder="ID" className="input" id="ID" />
+          <input
+            type="text"
+            placeholder="아이디"
+            className="input"
+            id="ID"
+            onChange={onChangeId}
+          />
         </div>
         <div className="input__block">
           <input
             type="password"
-            placeholder="Password"
+            placeholder="비밀번호"
             className="input"
             id="PW"
+            onChange={onChangePassword}
           />
         </div>
         <div className="input__block">
           <input
             type="password"
-            placeholder="Repeat Password"
+            placeholder="비밀번호 재입력"
             className="input"
             id="Repeat_PW"
+            onChange={onChangeCheckingPassword}
           />
         </div>
-        <button type="submit" className="signup__btn">
+        <div className={message ? 'message-active' : ''}>{message}</div>
+        <div className={blankMessage ? 'message-active' : ''}>
+          {blankMessage}
+        </div>
+        <button
+          type={blankMessage ? 'button' : 'submit'}
+          className="signup__btn"
+          onClick={checkingBlank}
+        >
           회원가입
         </button>
       </form>
@@ -35,76 +84,3 @@ function Signup() {
 }
 
 export default Signup;
-
-/*
-<div className="container">
-      <h1>회원가입</h1>
-
-      <ul className="links">
-        <li>
-          <a href="#" id="signin">
-            SIGN UP
-          </a>
-        </li>
-      </ul>
-
-      <form action="" method="post">
-        <div className="first-input input__block first-input__block">
-          <input
-            type="email"
-            placeholder="Email"
-            className="input"
-            id="email"
-          />
-        </div>
-        <div className="input__block">
-          <input
-            type="password"
-            placeholder="Password"
-            className="input"
-            id="password"
-          />
-        </div>
-        <div className="input__block repeat__password">
-          <input
-            type="password"
-            placeholder="Repeat password"
-            className="input repeat__password"
-            id="repeat__password"
-          />
-        </div>
-        <button className="signup__btn">회원가입</button>
-      </form>
-    </div>
-*/
-
-/*
-<div className="container my-3" style={{ background: 'red' }}>
-  <div className="my-3 border-bottom">
-    <div>
-      <h1>회원가입</h1>
-    </div>
-  </div>
-  <form>
-    <div className="mb-3">
-      <label className="form-label">사용자ID</label>
-      <input type="text" className="form-control" />
-    </div>
-    <div className="mb-3">
-      <label className="form-label">비밀번호</label>
-      <input type="password" className="form-control" />
-    </div>
-    <div className="mb-3">
-      <label className="form-label">비밀번호 확인</label>
-      <input type="password" className="form-control" />
-    </div>
-    <div className="mb-3">
-      <label className="form-label">이메일</label>
-      <input type="email" className="form-control" />
-    </div>
-    <button type="submit" className="signup__btn">
-      회원가입
-    </button>
-  </form>
-</div>
-*/

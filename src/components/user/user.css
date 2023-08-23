@@ -70,21 +70,37 @@ form .signin__btn:hover {
 }
 
 form .signup__btn {
-    background: #e91e63;
-    color: white;
-    display: block;
-    width: 92.5%;
-    max-width: 680px;
-    height: 50px;
-    border-radius: 8px;
-    margin: 0 auto;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    font-family: "Montserrat", sans-serif;
-    box-shadow: 0 15px 30px rgba(233, 30, 99, 0.36);
-    transition: 0.2s linear;
-  }
-  form .signup__btn:hover {
-    box-shadow: 0 0 0 rgba(233, 30, 99, 0);
-  }
+  background: #e91e63;
+  color: white;
+  display: block;
+  width: 92.5%;
+  max-width: 680px;
+  height: 50px;
+  border-radius: 8px;
+  margin: 0 auto;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 15px 30px rgba(233, 30, 99, 0.36);
+  transition: 0.2s linear;
+}
+form .signup__btn:hover {
+  box-shadow: 0 0 0 rgba(233, 30, 99, 0);
+}
+
+.test {
+  text-decoration: none;
+  color: #9B9B9B;
+  font-size: 15px;
+  text-align: right;
+  margin: 30px 30px 0 0;
+}
+.test:hover {
+  text-shadow: 0 15px 30px rgba(233, 30, 99, 0.36);
+}
+
+.message-active {
+  margin: 0 0 20px 25px;
+  color: #e91e63;
+}

@@ -7,6 +7,7 @@ function App() {
   const location = useGeoLocation();
   let nowLocation = { lat: 0, lng: 0 };
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-expressions
   location.loaded; //위치데이터 가져오기
 
   if (location.coordinates?.lat) {
