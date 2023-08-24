@@ -1,5 +1,5 @@
 import Memo from './Memos';
-import './user.css';
+import './css/user.css';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
 function Mypage(props: any) {

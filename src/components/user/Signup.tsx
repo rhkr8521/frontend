@@ -1,5 +1,5 @@
 import { SetStateAction, useState } from 'react';
-import './user.css';
+import './css/user.css';
 
 // 회원가입
 function Signup() {
