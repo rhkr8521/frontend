@@ -32,6 +32,7 @@ function MainPage(props: any) {
             lng: _t.getCenter().getLng(),
           })
         }
+        isPanto={true}
       >
         <CurrentLocation data={props.data} />
         <ZoomControl position={kakao.maps.ControlPosition.TOPRIGHT} />
