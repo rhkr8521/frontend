@@ -12,4 +12,5 @@
   border-image: initial;
   border-radius: 3px 3px 3px 3px;
   /* Add other properties as needed */
+  cursor: pointer;
 }

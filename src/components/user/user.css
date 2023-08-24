@@ -122,18 +122,18 @@ form .signup__btn:hover {
 }
 .memo-close-button {
   background: url("https://cdn-icons-png.flaticon.com/512/75/75519.png") no-repeat;
-  width: 18px;
-  height: 18px;
+  width: 25px;
+  height: 25px;
   background-size: contain;
   border: none;
-  margin: 6px 6px 0 0;
+  margin: 12px 6px 0 0;
   cursor: pointer;
 }
 
 .memo-container {
   display: block;
   max-width: 800px;
-  width: 80%;
+  width: 87%;
   margin: auto;
 }
 .memo-title-container {
