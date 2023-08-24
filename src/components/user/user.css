@@ -19,6 +19,13 @@ h1 {
   transition: 0.2s linear;
 }
 
+h2 {
+  font-family: Impact, Charcoal, 'Montserrat', sans-serif;
+  color: #e91e63;
+  margin: 10px 0 20px 3px;
+  text-shadow: 2px 2px 4px #d97e9d;
+}
+
 form {
   width: 100%;
   max-width: 680px;
@@ -103,4 +110,74 @@ form .signup__btn:hover {
 .message-active {
   margin: 0 0 20px 25px;
   color: #e91e63;
+}
+
+.my-page {
+  font-family: Impact, Charcoal, 'Montserrat', sans-serif;
+  font-size: 20px;
+  display: inline;
+  color: #e91e63;
+  margin-right: 50px;
+  margin-left: 30px
+}
+.memo-close-button {
+  background: url("https://cdn-icons-png.flaticon.com/512/75/75519.png") no-repeat;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  border: none;
+  margin: 6px 6px 0 0;
+  cursor: pointer;
+}
+
+.memo-container {
+  display: block;
+  max-width: 800px;
+  width: 80%;
+  margin: auto;
+}
+.memo-title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.memo-title {
+  font-size: xx-large;
+}
+.memo-date {
+  flex-shrink: 0;
+}
+.my-page-id {
+  font-family: Impact, Charcoal, 'Montserrat', sans-serif;
+  font-size: 20px;
+  display: inline;
+}
+.memo-button-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+.memo-content-container {
+  display: flex;
+  margin-top: 15px;
+  position: relative;
+}
+.memo-img {
+  width: 30%;
+  height: 100%;
+  margin-right: 20px;
+}
+
+
+hr.rounded {
+  border-top: 3px solid #e91e63;
+  border-radius: 5px;
+}
+hr.rounded.memo {
+  border-top: 3px solid #dcdcdc;
+  border-radius: 5px;
+}
+
+li {
+  margin-bottom: 20px;
 }
