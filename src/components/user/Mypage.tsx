@@ -14,7 +14,11 @@ function Mypage(props: any) {
         }}
       >
         <h2>나의 메모</h2>
-        <button type="button" className="memo-close-button" />
+        <button
+          type="button"
+          className="memo-close-button"
+          onClick={props.close}
+        />
       </div>
       <p className="my-page">ID</p>
       <p className="my-page-id">hi {props.Id}</p>

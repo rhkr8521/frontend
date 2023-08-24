@@ -55,6 +55,7 @@ function Buttons(props: any) {
           background:
             'url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/img_search.png) no-repeat -105px -450px',
         }}
+        onClick={props.mypage}
       ></button>
 
       <button

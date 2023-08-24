@@ -3,16 +3,21 @@ import { Map, ZoomControl } from 'react-kakao-maps-sdk';
 import CurrentLocation from '../components/currentLocation';
 import Buttons from '../components/buttons';
 import { useState } from 'react';
+import Mypage from './user/Mypage';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function MainPage(props: any) {
   const [position, setPosition] = useState(props.data);
+  const [mypageisOpen, setMypageIsOpen] = useState(false);
+  const clickedMypage = () => {
+    setMypageIsOpen((prev) => !prev);
+  };
 
   const currentLocation = () => {
     setPosition(props.data);
   };
 
-  return (
+  return !mypageisOpen ? (
     <>
       <Map
         center={position}
@@ -36,9 +41,15 @@ function MainPage(props: any) {
       >
         <CurrentLocation data={props.data} />
         <ZoomControl position={kakao.maps.ControlPosition.TOPRIGHT} />
-        <Buttons data={position} goBtn={currentLocation} />
+        <Buttons
+          data={position}
+          goBtn={currentLocation}
+          mypage={clickedMypage}
+        />
       </Map>
     </>
+  ) : (
+    <Mypage close={clickedMypage} />
   );
 }
 
