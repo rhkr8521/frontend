@@ -13,7 +13,12 @@ function Loading() {
       <img
         src={'public_assets/Loading.gif'}
         alt={'로딩'}
-        style={{ display: 'block', margin: '0 auto', width: '20%' }}
+        style={{
+          display: 'block',
+          margin: '0 auto',
+          width: '20%',
+          maxWidth: '50px',
+        }}
       />
     </div>
   );

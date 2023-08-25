@@ -75,7 +75,7 @@ function Marker(props: any) {
                     {data.content}
                   </div>
                   <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
-                    {data.date}
+                    <small>{data.date}</small>
                   </div>
                 </div>
               </div>

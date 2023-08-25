@@ -66,11 +66,13 @@ function AddModal(props: any) {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       console.log('메모가 성공적으로 생성되었습니다.');
+      window.location.reload();
     } catch (error) {
       console.error('메모 생성에 실패했습니다.', error);
     }
     props.close(); //입력 창 닫기
     props.markerSign(); //마커 추가 활성화 버튼 끄기
+    //window.location.reload();
   };
 
   return (

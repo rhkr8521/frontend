@@ -24,12 +24,12 @@ function MainPage(props: any) {
         style={{
           height: '100vh',
         }}
-        onClick={(_t, mouseEvent) =>
-          setPosition({
-            lat: mouseEvent.latLng.getLat(),
-            lng: mouseEvent.latLng.getLng(),
-          })
-        }
+        // onClick={(_t, mouseEvent) =>
+        //   setPosition({
+        //     lat: mouseEvent.latLng.getLat(),
+        //     lng: mouseEvent.latLng.getLng(),
+        //   })
+        // }
         level={3}
         onIdle={(_t) =>
           setPosition({
