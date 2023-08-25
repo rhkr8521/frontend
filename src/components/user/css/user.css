@@ -1,5 +1,5 @@
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   background: white;
 }
 
@@ -11,7 +11,7 @@ body {
 }
 
 h1 {
-  color: #238CFA;
+  color: #238cfa;
   font-size: 48px;
   letter-spacing: -3px;
   text-align: center;
@@ -21,7 +21,7 @@ h1 {
 
 h2 {
   font-family: Impact, Charcoal, 'Montserrat', sans-serif;
-  color: #238CFA;
+  color: #238cfa;
   margin: 10px 0 20px 3px;
 }
 
@@ -47,7 +47,7 @@ form .input__block input {
   color: rgba(15, 19, 42, 0.3);
   padding: 0 0 0 15px;
   font-size: 14px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 form .input__block input.repeat__password {
@@ -56,7 +56,7 @@ form .input__block input.repeat__password {
   transition: 0.2s linear;
 }
 form .signin__btn {
-  background: #238CFA;
+  background: #238cfa;
   color: white;
   display: block;
   width: 92.5%;
@@ -67,7 +67,7 @@ form .signin__btn {
   border: none;
   cursor: pointer;
   font-size: 14px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   box-shadow: 0 15px 30px rgba(35, 140, 250, 0.36);
   transition: 0.2s linear;
 }
@@ -76,7 +76,8 @@ form .signin__btn:hover {
 }
 
 .signin-close-button {
-  background: url("https://cdn-icons-png.flaticon.com/512/75/75519.png") no-repeat;
+  background: url('https://cdn-icons-png.flaticon.com/512/75/75519.png')
+    no-repeat;
   width: 25px;
   height: 25px;
   background-size: contain;
@@ -89,7 +90,7 @@ form .signin__btn:hover {
 }
 
 form .signup__btn {
-  background: #238CFA;
+  background: #238cfa;
   color: white;
   display: block;
   width: 92.5%;
@@ -100,7 +101,7 @@ form .signup__btn {
   border: none;
   cursor: pointer;
   font-size: 14px;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   box-shadow: 0 15px 30px rgba(35, 140, 250, 0.36);
   transition: 0.2s linear;
 }
@@ -109,7 +110,7 @@ form .signup__btn:hover {
 }
 
 .sign__link {
-  color: #9B9B9B;
+  color: #9b9b9b;
   font-size: 15px;
   text-align: right;
   margin: 50px 20px 0 0;
@@ -121,18 +122,19 @@ form .signup__btn:hover {
 
 .message-active {
   margin: 0 0 20px 25px;
-  color: #238CFA;
+  color: red;
 }
 
 .my-page {
   font-size: 20px;
   display: inline;
-  color: #238CFA;
+  color: #238cfa;
   margin-right: 30px;
   margin-left: 5%;
 }
 .memo-close-button {
-  background: url("https://cdn-icons-png.flaticon.com/512/75/75519.png") no-repeat;
+  background: url('https://cdn-icons-png.flaticon.com/512/75/75519.png')
+    no-repeat;
   width: 25px;
   height: 25px;
   background-size: contain;
@@ -180,9 +182,8 @@ form .signup__btn:hover {
   display: block;
 }
 
-
 hr.rounded {
-  border-top: 3px solid #238CFA;
+  border-top: 3px solid #238cfa;
   border-radius: 5px;
 }
 hr.rounded.memo {

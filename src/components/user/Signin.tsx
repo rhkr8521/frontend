@@ -1,4 +1,5 @@
 import { SetStateAction, useState } from 'react';
+import axios from 'axios';
 import './css/user.css';
 
 // 로그인
@@ -20,6 +21,25 @@ function Signin(props: any) {
       setBlankMessage('');
     } else {
       setBlankMessage('빈칸이 있습니다.');
+    }
+  };
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleSubmit = async (e: any) => {
+    e.preventDefault();
+
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('password', password);
+
+    try {
+      await axios.post('', formData, {
+        headers: { Accept: 'application/json' },
+      });
+      console.log('로그인되었습니다.');
+      window.location.reload(); //메인이 아니라 로그인 페이지로 이동해야 한다
+    } catch (error) {
+      console.error('로그인에에 실패했습니다.', error);
     }
   };
   return (
@@ -54,13 +74,23 @@ function Signin(props: any) {
           <div className={blankMessage ? 'message-active' : ''}>
             {blankMessage}
           </div>
-          <button
-            type={blankMessage ? 'button' : 'submit'}
-            className="signin__btn"
-            onClick={checkingBlank}
-          >
-            로그인
-          </button>
+          {email && password ? (
+            <button
+              type="submit"
+              className="signin__btn"
+              onClick={handleSubmit}
+            >
+              로그인
+            </button>
+          ) : (
+            <button
+              type="button"
+              className="signin__btn"
+              onClick={checkingBlank}
+            >
+              로그인
+            </button>
+          )}
         </form>
         <div className="sign__link" onClick={props.signup}>
           회원가입

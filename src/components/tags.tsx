@@ -101,6 +101,7 @@ function Tags() {
       <div className="category">
         <ul>
           <li
+            className="menu_selected"
             id="allMenu"
             onClick={() => {
               setSelectedCategory('all');

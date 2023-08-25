@@ -25,3 +25,7 @@
 .category li:hover {
   background-color: #f1f1f1;
 }
+
+.menu_selected {
+  background-color: #f1f1f1;
+}
