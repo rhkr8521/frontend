@@ -58,13 +58,12 @@ function AddModal(props: any) {
     formData.append('content', content);
     formData.append('lat', props.data.lat);
     formData.append('lng', props.data.lng);
-    formData.append('writer', 'anyone'); //일단 기본 설정
     if (image) {
       formData.append('file', image);
     }
 
     try {
-      const token = cookies.accessToken; // 쿠키에서 id 를 꺼내기
+      const token = cookies.accessToken; // 쿠키에서 token 를 꺼내기
       await axios.post('http://mapping.kro.kr:8080/api/memo/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',

@@ -59,7 +59,6 @@ function Signup(props: any) {
     formData.append('userPassword', password);
     formData.append('userPasswordcheck', checkingPassword);
     formData.append('userNickname', name);
-    formData.append('userPhoneNumber', '213424');
 
     try {
       await axios.post('http://mapping.kro.kr:8080/api/auth/signUp', formData, {

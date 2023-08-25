@@ -2,7 +2,8 @@
 import { Map, ZoomControl } from 'react-kakao-maps-sdk';
 import CurrentLocation from '../components/currentLocation';
 import Buttons from '../components/buttons';
-import { useState } from 'react';
+import { useCookies } from 'react-cookie';
+import { useState, useEffect } from 'react';
 import Mypage from './user/Mypage';
 import Signin from './user/Signin';
 import Signup from './user/Signup';
@@ -11,8 +12,32 @@ import Signup from './user/Signup';
 function MainPage(props: any) {
   const [position, setPosition] = useState(props.data);
   const [mypageisOpen, setMypageIsOpen] = useState(false);
-  const [isLogin, setisLogin] = useState(false);
   const [isSignup, setIsSignup] = useState(false);
+  const [cookies] = useCookies(['accessToken']);
+  const [isLogin, setIsLogin] = useState(false);
+
+  useEffect(() => {
+    const token = cookies.accessToken; // 쿠키에서 token 를 꺼내기
+    fetch('http://mapping.kro.kr:8080/api/board/', {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.writer == 'anonymousUser') {
+          setIsLogin(false);
+        } else {
+          setIsLogin(data.writer);
+        }
+      })
+      .catch((error) => {
+        console.error('유저 정보가 없습니다.', error);
+      });
+  }, []);
+
   const clickedMypage = () => {
     setMypageIsOpen((prev) => !prev);
   };
@@ -22,7 +47,6 @@ function MainPage(props: any) {
 
   const currentLocation = () => {
     setPosition(props.data);
-    setisLogin((prev) => !prev);
   };
 
   return !mypageisOpen ? (
@@ -57,7 +81,7 @@ function MainPage(props: any) {
       </Map>
     </>
   ) : mypageisOpen && isLogin ? (
-    <Mypage close={clickedMypage} />
+    <Mypage close={clickedMypage} cookie={cookies.accessToken} user={isLogin} />
   ) : !isSignup ? (
     <Signin close={clickedMypage} signup={clickedSignupLink} />
   ) : (
