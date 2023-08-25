@@ -12,7 +12,7 @@ function Memo() {
         <div className="memo-content-container">
           <img
             className="memo-img"
-            src="https://cdn-icons-png.flaticon.com/512/75/75519.png"
+            src="https://item.kakaocdn.net/do/b563e153db82fde06e1423472ccf192c9f17e489affba0627eb1eb39695f93dd"
           />
           <div className="memo-content">테스트 데이터입니다.</div>
         </div>
