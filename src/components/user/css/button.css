@@ -41,6 +41,11 @@
   --shadow: 0 2px 8px -1px rgba(21, 25, 36, 0.32);
   --shadow-hover: 0 4px 20px -2px rgba(21, 25, 36, 0.5);
 }
+.btn.green {
+  --background: rgb(62, 208, 164);
+  --shadow: 0 2prgb(93, 214, 143)1px rgba(48, 161, 127, 0.32);
+  --shadow-hover: 0 4px 20px -2px rgba(48, 161, 127, 0.5);
+}
 
   
 html {

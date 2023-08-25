@@ -1,9 +1,16 @@
 import './css/user.css';
 import './css/button.css';
+import Modify from './Modify';
 
 function Memo() {
+  const data = {
+    title: '안녕하세요.',
+    content: '반갑습니다.',
+    img: 'https://item.kakaocdn.net/do/b563e153db82fde06e1423472ccf192c9f17e489affba0627eb1eb39695f93dd',
+  };
   return (
     <>
+      <Modify data={data} />
       <li>
         <div className="memo-title-container">
           <div className="memo-title">메모제목</div>
