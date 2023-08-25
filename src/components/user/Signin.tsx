@@ -56,8 +56,15 @@ function Signin() {
             로그인
           </button>
         </form>
-        <div className="test">
-          <a href="">회원가입</a>
+        <div className="signup__link">
+          <a
+            href=""
+            style={{
+              textDecoration: 'none',
+            }}
+          >
+            회원가입
+          </a>
         </div>
       </div>
     </>

@@ -11,7 +11,7 @@ body {
 }
 
 h1 {
-  color: #e91e63;
+  color: #238CFA;
   font-size: 48px;
   letter-spacing: -3px;
   text-align: center;
@@ -21,9 +21,9 @@ h1 {
 
 h2 {
   font-family: Impact, Charcoal, 'Montserrat', sans-serif;
-  color: #e91e63;
+  color: #238CFA;
   margin: 10px 0 20px 3px;
-  text-shadow: 2px 2px 4px #d97e9d;
+  text-shadow: 2px 2px 4px #67b0ff;
 }
 
 form {
@@ -57,7 +57,7 @@ form .input__block input.repeat__password {
   transition: 0.2s linear;
 }
 form .signin__btn {
-  background: #e91e63;
+  background: #238CFA;
   color: white;
   display: block;
   width: 92.5%;
@@ -69,7 +69,7 @@ form .signin__btn {
   cursor: pointer;
   font-size: 14px;
   font-family: "Montserrat", sans-serif;
-  box-shadow: 0 15px 30px rgba(233, 30, 99, 0.36);
+  box-shadow: 0 15px 30px rgba(35, 140, 250, 0.36);
   transition: 0.2s linear;
 }
 form .signin__btn:hover {
@@ -77,7 +77,7 @@ form .signin__btn:hover {
 }
 
 form .signup__btn {
-  background: #e91e63;
+  background: #238CFA;
   color: white;
   display: block;
   width: 92.5%;
@@ -89,34 +89,33 @@ form .signup__btn {
   cursor: pointer;
   font-size: 14px;
   font-family: "Montserrat", sans-serif;
-  box-shadow: 0 15px 30px rgba(233, 30, 99, 0.36);
+  box-shadow: 0 15px 30px rgba(35, 140, 250, 0.36);
   transition: 0.2s linear;
 }
 form .signup__btn:hover {
   box-shadow: 0 0 0 rgba(233, 30, 99, 0);
 }
 
-.test {
-  text-decoration: none;
+.signup__link {
   color: #9B9B9B;
   font-size: 15px;
   text-align: right;
-  margin: 30px 30px 0 0;
+  margin: 50px 30px 0 0;
 }
-.test:hover {
-  text-shadow: 0 15px 30px rgba(233, 30, 99, 0.36);
+.signup__link:hover {
+  text-shadow: 0 15px 20px rgba(35, 140, 250, 0.36);
 }
 
 .message-active {
   margin: 0 0 20px 25px;
-  color: #e91e63;
+  color: #238CFA;
 }
 
 .my-page {
   font-family: Impact, Charcoal, 'Montserrat', sans-serif;
   font-size: 20px;
   display: inline;
-  color: #e91e63;
+  color: #238CFA;
   margin-right: 50px;
   margin-left: 30px
 }
@@ -170,7 +169,7 @@ form .signup__btn:hover {
 
 
 hr.rounded {
-  border-top: 3px solid #e91e63;
+  border-top: 3px solid #238CFA;
   border-radius: 5px;
 }
 hr.rounded.memo {
