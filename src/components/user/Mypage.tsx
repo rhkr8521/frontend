@@ -20,8 +20,8 @@ function Mypage(props: any) {
           onClick={props.close}
         />
       </div>
-      <p className="my-page">ID</p>
-      <p className="my-page-id">hi {props.Id}</p>
+      <p className="my-page">닉네임</p>
+      <p className="my-page-id">안녕홍길동입니다 {props.Id}</p>
       <hr className="rounded" style={{ marginTop: 15 }} />
 
       <ul style={{ listStyle: 'none', paddingLeft: '0' }}>
