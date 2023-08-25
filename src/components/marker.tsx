@@ -40,7 +40,7 @@ function Marker(props: any) {
                 <div onClick={() => setIsOpen(false)}>
                   <img
                     src="https://cdn-icons-png.flaticon.com/512/75/75519.png"
-                    width="18"
+                    width="15"
                     height="15"
                     alt="닫기"
                   />
