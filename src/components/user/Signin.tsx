@@ -4,11 +4,11 @@ import './css/user.css';
 // 로그인
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Signin(props: any) {
-  const [Id, setId] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [blankMessage, setBlankMessage] = useState('');
-  const onChangeId = (e: { target: { value: SetStateAction<string> } }) => {
-    setId(e.target.value);
+  const onChangeEmail = (e: { target: { value: SetStateAction<string> } }) => {
+    setEmail(e.target.value);
   };
   const onChangePassword = (e: {
     target: { value: SetStateAction<string> };
@@ -16,7 +16,7 @@ function Signin(props: any) {
     setPassword(e.target.value);
   };
   const checkingBlank = () => {
-    if (Id && password) {
+    if (email && password) {
       setBlankMessage('');
     } else {
       setBlankMessage('빈칸이 있습니다.');
@@ -35,11 +35,11 @@ function Signin(props: any) {
         <form action="" method="post">
           <div className="input__block">
             <input
-              type="ID"
-              placeholder="아이디"
+              type="email"
+              placeholder="이메일"
               className="input"
-              id="ID"
-              onChange={onChangeId}
+              id="email"
+              onChange={onChangeEmail}
             />
           </div>
           <div className="input__block">
