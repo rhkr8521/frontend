@@ -2,6 +2,7 @@
 import Modal from 'react-modal';
 import { useState } from 'react';
 import './css/modal.css';
+import axios from 'axios';
 
 function AddModal(props: any) {
   const customModalStyles: ReactModal.Styles = {
@@ -29,26 +30,45 @@ function AddModal(props: any) {
       overflow: 'auto',
     },
   };
+  const [tag, setTag] = useState('기타');
+  const [content, setContent] = useState('');
+  const [image, setImage] = useState('');
+  //const [writer, setWriter] = useState('');
+  //작성자는 따로 비동기 코드를 작성해서 저장한다
 
-  const [values, setValues] = useState({
-    tag: '',
-    content: '',
-    lat: props.data.lat,
-    lng: props.data.lng,
-    image: '',
-    user: 'anyone', //유저이 이름을 가져와서 여기 대입
-  });
-
-  const handleChange = (e: any) => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    });
+  const handleTagChange = (e: any) => {
+    setTag(e.target.value);
   };
 
-  const handleSubmit = (e: any) => {
+  const handleContentChange = (e: any) => {
+    setContent(e.target.value);
+  };
+
+  const handleImageChange = (e: any) => {
+    setImage(e.target.files[0]);
+  };
+
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    alert(JSON.stringify(values, null, 2) + '\n메모가 추가되었습니다');
+
+    const formData = new FormData();
+    formData.append('tag', tag);
+    formData.append('content', content);
+    formData.append('lat', props.data.lat);
+    formData.append('lng', props.data.lng);
+    formData.append('writer', 'anyone'); //일단 기본 설정
+    if (image) {
+      formData.append('file', image);
+    }
+
+    try {
+      await axios.post('http://mapping.kro.kr:8080/memo/upload', formData, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      console.log('메모가 성공적으로 생성되었습니다.');
+    } catch (error) {
+      console.error('메모 생성에 실패했습니다.', error);
+    }
     props.close(); //입력 창 닫기
     props.markerSign(); //마커 추가 활성화 버튼 끄기
   };
@@ -64,14 +84,10 @@ function AddModal(props: any) {
       >
         <div className="modal">
           <h2>메모 작성</h2>
-          <form
-            onSubmit={handleSubmit}
-            method="post"
-            encType="multipart/form-data"
-          >
+          <form onSubmit={handleSubmit}>
             <p>
               태그:
-              <select name="tag" value={values.tag} onChange={handleChange}>
+              <select name="tag" value={tag} onChange={handleTagChange}>
                 <option value="기타">기타</option>
                 <option value="쓰레기통">쓰레기통</option>
                 <option value="화장실">화장실</option>
@@ -80,23 +96,18 @@ function AddModal(props: any) {
             </p>
             <p>
               내용:
-              <input
-                type="text"
+              <textarea
                 name="content"
-                value={values.content}
-                onChange={handleChange}
+                value={content}
+                onChange={handleContentChange}
               />
             </p>
             <p>
               이미지:
               <input
-                className="upload-name"
                 type="file"
-                name="image"
                 accept="image/*"
-                value={values.image}
-                onChange={handleChange}
-                placeholder="이미지를 업로드 하세요"
+                onChange={handleImageChange}
               />
             </p>
             <div className="buttons">

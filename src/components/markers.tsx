@@ -1,11 +1,10 @@
-import React from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Marker from './marker'; // 파일명 대소문자를 확인하여 수정
-import markerData from '../test.json';
 
-function Markers() {
+function Markers(props: any) {
   return (
     <>
-      {markerData.map((item, index) => (
+      {props.data.map((item: any, index: any) => (
         <Marker
           key={index}
           data={{

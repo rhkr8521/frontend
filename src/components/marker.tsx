@@ -47,7 +47,7 @@ function Marker(props: any) {
                 </div>
               </div>
               <div className="body" style={{ display: 'flex' }}>
-                {data.img && ( // 여기서 data.img 값이 null이 아닌 경우에만 아래 div를 출력
+                {data.img !== 'null' && ( // 여기서 data.img 값이 null이 아닌 경우에만 아래 div를 출력
                   <div className="img" style={{ margin: '0.5em' }}>
                     <img
                       src={data.img}

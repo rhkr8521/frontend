@@ -1,10 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Modal from 'react-modal';
 import { useState } from 'react';
+import Markers from './markers';
+import axios from 'axios';
 import './css/modal.css';
 
 function SearchModal(props: any) {
   const [modal, setModal] = useState(true);
+  const [data, setData] = useState();
 
   const customModalStyles: ReactModal.Styles = {
     overlay: {
@@ -32,20 +35,23 @@ function SearchModal(props: any) {
     },
   };
 
-  const [values, setValues] = useState({
-    search: '',
-  });
+  const [values, setValues] = useState();
 
   const handleChange = (e: any) => {
-    setValues({
-      ...values,
-      [e.target.name]: e.target.value,
-    });
+    setValues(e.target.value);
   };
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
-    alert(JSON.stringify(values, null, 2) + '을 검색했습니다');
+    try {
+      const response = await axios.get(
+        'http://mapping.kro.kr:8080/memo/content_search?content=' + values,
+      );
+      console.log(values, '검색');
+      setData(response.data);
+    } catch (error) {
+      console.error('검색에 실패했습니다.', error);
+    }
     setModal(false); //입력 창 닫기
   };
 
@@ -62,7 +68,7 @@ function SearchModal(props: any) {
           <h2>검색어 입력</h2>
           <form
             onSubmit={handleSubmit}
-            method="post"
+            method="get"
             encType="multipart/form-data"
           >
             <p>
@@ -70,7 +76,7 @@ function SearchModal(props: any) {
               <input
                 type="text"
                 name="search"
-                value={values.search}
+                value={values || ''}
                 onChange={handleChange}
               />
             </p>
@@ -85,6 +91,7 @@ function SearchModal(props: any) {
           </form>
         </div>
       </Modal>
+      {data && <Markers data={data} />}
     </>
   );
 }
