@@ -55,14 +55,18 @@ function Signup(props: any) {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append('email', email);
-    formData.append('password', password);
-    formData.append('checkingPassword', checkingPassword);
-    formData.append('nickname', name);
+    formData.append('userEmail', email);
+    formData.append('userPassword', password);
+    formData.append('userPasswordcheck', checkingPassword);
+    formData.append('userNickname', name);
+    formData.append('userPhoneNumber', '213424');
 
     try {
-      await axios.post('', formData, {
-        headers: { Accept: 'application/json' },
+      await axios.post('http://mapping.kro.kr:8080/api/auth/signUp', formData, {
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
       });
       console.log('회원이 성공적으로 생성되었습니다.');
       window.location.reload(); //메인이 아니라 로그인 페이지로 이동해야 한다

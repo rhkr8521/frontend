@@ -6,7 +6,7 @@ import Markers from './markers';
 function Tags() {
   const [allPositions, setAllPositions] = useState([]);
   useEffect(() => {
-    fetch('http://mapping.kro.kr:8080/memo', {
+    fetch('http://mapping.kro.kr:8080/api/memo', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -20,7 +20,7 @@ function Tags() {
   const [trashPositions, setTrashPositions] = useState([]);
 
   useEffect(() => {
-    fetch('http://mapping.kro.kr:8080/memo/tagsearch?tag=쓰레기통', {
+    fetch('http://mapping.kro.kr:8080/api/memo/tagsearch?tag=쓰레기통', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -34,7 +34,7 @@ function Tags() {
   const [toiletPositions, setToiletPositions] = useState([]);
 
   useEffect(() => {
-    fetch('http://mapping.kro.kr:8080/memo/tagsearch?tag=화장실', {
+    fetch('http://mapping.kro.kr:8080/api/memo/tagsearch?tag=화장실', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -48,7 +48,7 @@ function Tags() {
   const [constructionPositions, setConstructionPositions] = useState([]);
 
   useEffect(() => {
-    fetch('http://mapping.kro.kr:8080/memo/tagsearch?tag=공사중', {
+    fetch('http://mapping.kro.kr:8080/api/memo/tagsearch?tag=공사중', {
       method: 'GET',
       headers: {
         Accept: 'application/json',

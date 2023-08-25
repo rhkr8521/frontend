@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Modal from 'react-modal';
 import { useState } from 'react';
+import { useCookies } from 'react-cookie';
 import './css/modal.css';
 import axios from 'axios';
 
@@ -33,6 +34,7 @@ function AddModal(props: any) {
   const [tag, setTag] = useState('기타');
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
+  const [cookies] = useCookies(['accessToken']);
   //const [writer, setWriter] = useState('');
   //작성자는 따로 비동기 코드를 작성해서 저장한다
 
@@ -62,8 +64,12 @@ function AddModal(props: any) {
     }
 
     try {
-      await axios.post('http://mapping.kro.kr:8080/memo/upload', formData, {
-        headers: { 'Content-Type': 'multipart/form-data' },
+      const token = cookies.accessToken; // 쿠키에서 id 를 꺼내기
+      await axios.post('http://mapping.kro.kr:8080/api/memo/upload', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`,
+        },
       });
       console.log('메모가 성공적으로 생성되었습니다.');
       window.location.reload();

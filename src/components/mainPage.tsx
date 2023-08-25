@@ -24,7 +24,7 @@ function MainPage(props: any) {
     setPosition(props.data);
     setisLogin((prev) => !prev);
   };
-  console.log(mypageisOpen, isLogin, isSignup);
+
   return !mypageisOpen ? (
     <>
       <Map

@@ -1,20 +1,21 @@
-import { SetStateAction, useState } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from 'react';
+import { useCookies } from 'react-cookie';
 import axios from 'axios';
 import './css/user.css';
 
 // 로그인
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Signin(props: any) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [blankMessage, setBlankMessage] = useState('');
-  const onChangeEmail = (e: { target: { value: SetStateAction<string> } }) => {
+  const [cookie, setCookie] = useCookies(['accessToken']);
+
+  const onChangeEmail = (e: any) => {
     setEmail(e.target.value);
     checkingBlank();
   };
-  const onChangePassword = (e: {
-    target: { value: SetStateAction<string> };
-  }) => {
+  const onChangePassword = (e: any) => {
     setPassword(e.target.value);
     checkingBlank();
   };
@@ -31,14 +32,26 @@ function Signin(props: any) {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append('email', email);
-    formData.append('password', password);
+    formData.append('userEmail', email);
+    formData.append('userPassword', password);
 
     try {
-      await axios.post('', formData, {
-        headers: { Accept: 'application/json' },
-      });
+      const response = await axios.post(
+        'http://mapping.kro.kr:8080/api/auth/signIn',
+        formData,
+        {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        },
+      );
       console.log('로그인되었습니다.');
+      setCookie('accessToken', response.data.data.token, {
+        path: '/',
+        maxAge: 3600,
+      }); // 여기서 쿠키 설정
+      console.log(cookie);
       window.location.reload(); //메인이 아니라 로그인 페이지로 이동해야 한다
     } catch (error) {
       console.error('로그인에에 실패했습니다.', error);

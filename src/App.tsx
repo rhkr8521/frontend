@@ -2,6 +2,7 @@ import './App.css';
 import useGeoLocation from './hooks/useGeolocation';
 import MainPage from './components/mainPage';
 import Loading from './components/loading';
+import { CookiesProvider } from 'react-cookie';
 
 function App() {
   const location = useGeoLocation();
@@ -17,9 +18,9 @@ function App() {
     };
 
     return (
-      <>
+      <CookiesProvider>
         <MainPage data={nowLocation} />
-      </>
+      </CookiesProvider>
     );
   } else {
     return (
