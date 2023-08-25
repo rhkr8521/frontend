@@ -2,7 +2,8 @@ import { SetStateAction, useState } from 'react';
 import './css/user.css';
 
 // 로그인
-function Signin() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function Signin(props: any) {
   const [Id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [blankMessage, setBlankMessage] = useState('');
@@ -23,6 +24,11 @@ function Signin() {
   };
   return (
     <>
+      <button
+        type="button"
+        className="signin-close-button"
+        onClick={props.close}
+      />
       <div className="container">
         <h1>로그인</h1>
 
@@ -56,15 +62,8 @@ function Signin() {
             로그인
           </button>
         </form>
-        <div className="signup__link">
-          <a
-            href=""
-            style={{
-              textDecoration: 'none',
-            }}
-          >
-            회원가입
-          </a>
+        <div className="sign__link" onClick={props.signup}>
+          회원가입
         </div>
       </div>
     </>

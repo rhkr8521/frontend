@@ -7,7 +7,7 @@ body {
   display: block;
   max-width: 680px;
   width: 80%;
-  margin: 120px auto;
+  margin: 60px auto;
 }
 
 h1 {
@@ -15,7 +15,7 @@ h1 {
   font-size: 48px;
   letter-spacing: -3px;
   text-align: center;
-  margin: 120px 0 80px 0;
+  margin: 60px 0 80px 0;
   transition: 0.2s linear;
 }
 
@@ -76,6 +76,19 @@ form .signin__btn:hover {
   box-shadow: 0 0 0 rgba(233, 30, 99, 0);
 }
 
+.signin-close-button {
+  background: url("https://cdn-icons-png.flaticon.com/512/75/75519.png") no-repeat;
+  width: 25px;
+  height: 25px;
+  background-size: contain;
+  border: none;
+  cursor: pointer;
+  display: block;
+  margin: auto;
+  margin-right: 50px;
+  margin-top: 30px;
+}
+
 form .signup__btn {
   background: #238CFA;
   color: white;
@@ -96,13 +109,14 @@ form .signup__btn:hover {
   box-shadow: 0 0 0 rgba(233, 30, 99, 0);
 }
 
-.signup__link {
+.sign__link {
   color: #9B9B9B;
   font-size: 15px;
   text-align: right;
   margin: 50px 30px 0 0;
+  cursor: pointer;
 }
-.signup__link:hover {
+.sign__link:hover {
   text-shadow: 0 15px 20px rgba(35, 140, 250, 0.36);
 }
 
@@ -132,7 +146,7 @@ form .signup__btn:hover {
 .memo-container {
   display: block;
   max-width: 800px;
-  width: 87%;
+  width: 80%;
   margin: auto;
 }
 .memo-title-container {

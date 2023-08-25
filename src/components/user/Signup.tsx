@@ -2,7 +2,8 @@ import { SetStateAction, useState } from 'react';
 import './css/user.css';
 
 // 회원가입
-function Signup() {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function Signup(props: any) {
   const [Id, setId] = useState('');
   const [password, setPassword] = useState('');
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -35,51 +36,74 @@ function Signup() {
       setBlankMessage('빈칸이 있습니다.');
     }
   };
+  const closeSignup = () => {
+    props.signup();
+    props.close();
+  };
   return (
-    <div className="container">
-      <h1>회원가입</h1>
+    <>
+      <button
+        type="button"
+        className="signin-close-button"
+        onClick={closeSignup}
+      />
+      <div className="container">
+        <h1>회원가입</h1>
 
-      <form action="" method="post">
-        <div className="input__block">
-          <input
-            type="text"
-            placeholder="아이디"
-            className="input"
-            id="ID"
-            onChange={onChangeId}
-          />
+        <form action="" method="post">
+          <div className="input__block">
+            <input
+              type="text"
+              placeholder="닉네임"
+              className="input"
+              id="nickname"
+              onChange={onChangeCheckingPassword}
+            />
+          </div>
+          <div className="input__block">
+            <input
+              type="text"
+              placeholder="아이디"
+              className="input"
+              id="ID"
+              onChange={onChangeId}
+            />
+          </div>
+          <div className="input__block">
+            <input
+              type="password"
+              placeholder="비밀번호"
+              className="input"
+              id="PW"
+              onChange={onChangePassword}
+            />
+          </div>
+          <div className="input__block">
+            <input
+              type="password"
+              placeholder="비밀번호 재입력"
+              className="input"
+              id="Repeat_PW"
+              onChange={onChangeCheckingPassword}
+            />
+          </div>
+          <div className={message ? 'message-active' : ''}>{message}</div>
+          <div className={blankMessage ? 'message-active' : ''}>
+            {blankMessage}
+          </div>
+          <button
+            type={blankMessage ? 'button' : 'submit'}
+            className="signup__btn"
+            onClick={checkingBlank}
+          >
+            회원가입
+          </button>
+        </form>
+        <div className="sign__link" onClick={props.signup}>
+          로그인
         </div>
-        <div className="input__block">
-          <input
-            type="password"
-            placeholder="비밀번호"
-            className="input"
-            id="PW"
-            onChange={onChangePassword}
-          />
-        </div>
-        <div className="input__block">
-          <input
-            type="password"
-            placeholder="비밀번호 재입력"
-            className="input"
-            id="Repeat_PW"
-            onChange={onChangeCheckingPassword}
-          />
-        </div>
-        <div className={message ? 'message-active' : ''}>{message}</div>
-        <div className={blankMessage ? 'message-active' : ''}>
-          {blankMessage}
-        </div>
-        <button
-          type={blankMessage ? 'button' : 'submit'}
-          className="signup__btn"
-          onClick={checkingBlank}
-        >
-          회원가입
-        </button>
-      </form>
-    </div>
+      </div>
+    </>
   );
 }
 

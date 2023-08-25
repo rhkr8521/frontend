@@ -4,19 +4,27 @@ import CurrentLocation from '../components/currentLocation';
 import Buttons from '../components/buttons';
 import { useState } from 'react';
 import Mypage from './user/Mypage';
+import Signin from './user/Signin';
+import Signup from './user/Signup';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function MainPage(props: any) {
   const [position, setPosition] = useState(props.data);
   const [mypageisOpen, setMypageIsOpen] = useState(false);
+  const [isLogin, setisLogin] = useState(false);
+  const [isSignup, setIsSignup] = useState(false);
   const clickedMypage = () => {
     setMypageIsOpen((prev) => !prev);
+  };
+  const clickedSignupLink = () => {
+    setIsSignup((prev) => !prev);
   };
 
   const currentLocation = () => {
     setPosition(props.data);
+    setisLogin((prev) => !prev);
   };
-
+  console.log(mypageisOpen, isLogin, isSignup);
   return !mypageisOpen ? (
     <>
       <Map
@@ -48,8 +56,12 @@ function MainPage(props: any) {
         />
       </Map>
     </>
-  ) : (
+  ) : mypageisOpen && isLogin ? (
     <Mypage close={clickedMypage} />
+  ) : !isSignup ? (
+    <Signin close={clickedMypage} signup={clickedSignupLink} />
+  ) : (
+    <Signup close={clickedMypage} signup={clickedSignupLink} />
   );
 }
 
