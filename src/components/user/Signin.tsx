@@ -10,11 +10,13 @@ function Signin(props: any) {
   const [blankMessage, setBlankMessage] = useState('');
   const onChangeEmail = (e: { target: { value: SetStateAction<string> } }) => {
     setEmail(e.target.value);
+    checkingBlank();
   };
   const onChangePassword = (e: {
     target: { value: SetStateAction<string> };
   }) => {
     setPassword(e.target.value);
+    checkingBlank();
   };
   const checkingBlank = () => {
     if (email && password) {

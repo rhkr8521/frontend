@@ -13,14 +13,17 @@ function Signup(props: any) {
 
   const onChangeEmail = (e: { target: { value: SetStateAction<string> } }) => {
     setEmail(e.target.value);
+    checkingBlank();
   };
   const onChangeName = (e: { target: { value: SetStateAction<string> } }) => {
     setName(e.target.value);
+    checkingBlank();
   };
   const onChangePassword = (e: {
     target: { value: SetStateAction<string> };
   }) => {
     setPassword(e.target.value);
+    checkingBlank();
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -120,19 +123,19 @@ function Signup(props: any) {
           <div className={blankMessage ? 'message-active' : ''}>
             {blankMessage}
           </div>
-          {blankMessage ? (
+          {email && name && password && checkingPassword ? (
             <button
-              type="button"
+              type="submit"
               className="signup__btn"
-              onClick={checkingBlank}
+              onClick={handleSubmit}
             >
               회원가입
             </button>
           ) : (
             <button
-              type="submit"
+              type="button"
               className="signup__btn"
-              onClick={handleSubmit}
+              onClick={checkingBlank}
             >
               회원가입
             </button>
