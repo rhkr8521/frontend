@@ -61,14 +61,23 @@ function Signup(props: any) {
     formData.append('userNickname', name);
 
     try {
-      await axios.post('https://mapping.kro.kr:81/api/auth/signUp', formData, {
-        headers: {
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
+      const result = await axios.post(
+        'https://mapping.kro.kr:81/api/auth/signUp',
+        formData,
+        {
+          headers: {
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
         },
-      });
-      console.log('회원이 성공적으로 생성되었습니다.');
-      window.location.reload(); //메인이 아니라 로그인 페이지로 이동해야 한다
+      );
+      console.log(result);
+      if (result.data.result) {
+        alert('회원이 성공적으로 생성되었습니다. \n다시 로그인 해주세요.');
+        window.location.reload();
+      } else {
+        alert(result.data.message);
+      }
     } catch (error) {
       console.error('회원 생성에 실패했습니다.', error);
     }

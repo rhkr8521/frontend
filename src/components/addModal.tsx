@@ -11,15 +11,15 @@ function AddModal(props: any) {
       backgroundColor: ' rgba(0, 0, 0, 0.4)',
       width: '100%',
       height: '100vh',
-      zIndex: '11',
+      zIndex: '20',
       position: 'fixed',
       top: '0',
       left: '0',
     },
     content: {
-      width: '80%',
-      zIndex: '12',
-      minHeight: '47%',
+      width: '240px',
+      zIndex: '21',
+      height: '355px',
       position: 'absolute',
       top: '50%',
       left: '50%',
@@ -103,7 +103,8 @@ function AddModal(props: any) {
             </p>
             <p>
               내용:
-              <textarea
+              <input
+                type="text"
                 name="content"
                 value={content}
                 onChange={handleContentChange}

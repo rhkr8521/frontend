@@ -9,7 +9,7 @@ function Signin(props: any) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [blankMessage, setBlankMessage] = useState('');
-  const [cookie, setCookie] = useCookies(['accessToken']);
+  const [, setCookie] = useCookies(['accessToken']);
 
   const onChangeEmail = (e: any) => {
     setEmail(e.target.value);
@@ -46,13 +46,17 @@ function Signin(props: any) {
           },
         },
       );
-      console.log('로그인되었습니다.');
-      setCookie('accessToken', response.data.data.token, {
-        path: '/',
-        maxAge: 3600,
-      }); // 여기서 쿠키 설정
-      console.log(cookie);
-      window.location.reload(); //메인이 아니라 로그인 페이지로 이동해야 한다
+      console.log(response);
+      if (response.data.result) {
+        setCookie('accessToken', response.data.data.token, {
+          path: '/',
+          maxAge: 3600,
+        }); // 여기서 쿠키 설정
+        alert('로그인 되었습니다.');
+        window.location.reload();
+      } else {
+        alert('아이디 비밀번호를 확인해주세요.');
+      }
     } catch (error) {
       console.error('로그인에에 실패했습니다.', error);
     }
