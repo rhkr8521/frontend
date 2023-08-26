@@ -11,7 +11,7 @@ function Loading() {
     >
       <h3 style={{ textAlign: 'center' }}>Loading</h3>
       <img
-        src={'public_assets/Loading.gif'}
+        src={'https://mapping.kro.kr:81/api/images/loading.gif'}
         alt={'로딩'}
         style={{
           display: 'block',

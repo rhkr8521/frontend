@@ -10,7 +10,7 @@ function Mypage(props: any) {
 
   useEffect(() => {
     const token = props.cookie; // 쿠키에서 token 를 꺼내기
-    fetch('http://mapping.kro.kr:8080/api/memo/search', {
+    fetch('https://mapping.kro.kr:81/api/memo/search', {
       method: 'GET',
       headers: {
         Accept: 'application/json',

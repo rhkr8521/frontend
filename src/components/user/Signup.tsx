@@ -61,7 +61,7 @@ function Signup(props: any) {
     formData.append('userNickname', name);
 
     try {
-      await axios.post('http://mapping.kro.kr:8080/api/auth/signUp', formData, {
+      await axios.post('https://mapping.kro.kr:81/api/auth/signUp', formData, {
         headers: {
           Accept: 'application/json',
           'Content-Type': 'application/json',

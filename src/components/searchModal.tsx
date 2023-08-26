@@ -45,7 +45,7 @@ function SearchModal(props: any) {
     e.preventDefault();
     try {
       const response = await axios.get(
-        'http://mapping.kro.kr:8080/memo/content_search?content=' + values,
+        'https://mapping.kro.kr:81/memo/content_search?content=' + values,
       );
       console.log(values, '검색');
       setData(response.data);

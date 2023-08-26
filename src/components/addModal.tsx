@@ -64,7 +64,7 @@ function AddModal(props: any) {
 
     try {
       const token = cookies.accessToken; // 쿠키에서 token 를 꺼내기
-      await axios.post('http://mapping.kro.kr:8080/api/memo/upload', formData, {
+      await axios.post('https://mapping.kro.kr:81/api/memo/upload', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`,

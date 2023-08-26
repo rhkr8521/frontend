@@ -18,7 +18,7 @@ function MainPage(props: any) {
 
   useEffect(() => {
     const token = cookies.accessToken; // 쿠키에서 token 를 꺼내기
-    fetch('http://mapping.kro.kr:8080/api/board/', {
+    fetch('https://mapping.kro.kr:81/api/board/', {
       method: 'GET',
       headers: {
         Accept: 'application/json',
