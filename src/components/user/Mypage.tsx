@@ -11,9 +11,12 @@ function Mypage(props: any) {
 
   const handleLogout = () => {
     // 로그아웃 버튼을 누르면 실행되는 함수
-    removeCookie('accessToken', { path: '/' }); // 쿠키삭제후
-    alert('로그아웃 되었습니다.');
-    window.location.reload();
+    const result = confirm('로그아웃 하시겠습니까?');
+    if (result) {
+      removeCookie('accessToken', { path: '/' }); // 쿠키삭제후
+      alert('로그아웃 되셨습니다.');
+      window.location.reload();
+    }
   };
 
   useEffect(() => {

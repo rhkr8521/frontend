@@ -77,6 +77,7 @@ function MainPage(props: any) {
           data={position}
           goBtn={currentLocation}
           mypage={clickedMypage}
+          login={isLogin}
         />
       </Map>
     </>

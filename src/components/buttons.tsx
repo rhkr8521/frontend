@@ -13,7 +13,11 @@ function Buttons(props: any) {
   const [searchBtn, setSearchBtn] = useState(false);
 
   const clickedToggle = () => {
-    setToggle((prev) => !prev);
+    if (props.login) {
+      setToggle((prev) => !prev);
+    } else {
+      alert('로그인이 필요한 기능입니다');
+    }
   };
   const modalClose = () => {
     setAddModal(false);
