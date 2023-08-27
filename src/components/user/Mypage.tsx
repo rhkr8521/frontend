@@ -34,7 +34,6 @@ function Mypage(props: any) {
         console.error(error);
       });
   }, []);
-  console.log(memos);
 
   return (
     <div className="memo-container">

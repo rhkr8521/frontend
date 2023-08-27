@@ -1,9 +1,11 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "맵핑",
+  "name": "맵핑",
+  "description": "맵에 메모를 작성하고 공유하자",
+  "orientation": "portrait",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "logo512.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
@@ -13,13 +15,13 @@
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
+      "src": "logo192.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
+  "theme_color": "#ffffff",
   "background_color": "#ffffff"
 }

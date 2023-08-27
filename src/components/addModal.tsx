@@ -35,8 +35,6 @@ function AddModal(props: any) {
   const [content, setContent] = useState('');
   const [image, setImage] = useState('');
   const [cookies] = useCookies(['accessToken']);
-  //const [writer, setWriter] = useState('');
-  //작성자는 따로 비동기 코드를 작성해서 저장한다
 
   const handleTagChange = (e: any) => {
     setTag(e.target.value);
