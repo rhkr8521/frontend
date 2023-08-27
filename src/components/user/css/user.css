@@ -124,14 +124,29 @@ form .signup__btn:hover {
   margin: 0 0 20px 25px;
   color: red;
 }
-
+.mypage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 .my-page {
   font-size: 20px;
-  display: inline;
+  justify-content: space-between;
+  align-items: flex-end;
   color: #238cfa;
   margin-right: 30px;
   margin-left: 5%;
 }
+
+.my-page-logout {
+  font-size: 20px;
+  display: inline;
+  margin-left: auto; /* 오른쪽 정렬을 위해 추가 */
+  color: gray;
+  text-decoration: underline; /* 밑줄 추가 */
+  cursor: pointer;
+}
+
 .memo-close-button {
   background: url('https://cdn-icons-png.flaticon.com/512/75/75519.png')
     no-repeat;
@@ -160,10 +175,7 @@ form .signup__btn:hover {
 .memo-date {
   flex-shrink: 0;
 }
-.my-page-id {
-  font-size: 20px;
-  display: inline;
-}
+
 .memo-button-container {
   display: flex;
   justify-content: flex-end;

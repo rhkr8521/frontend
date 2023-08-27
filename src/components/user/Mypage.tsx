@@ -1,12 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import Memo from './Memos';
 import { useEffect, useState } from 'react';
-//import axios from 'axios';
+import { useCookies } from 'react-cookie';
 import './css/user.css';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars, @typescript-eslint/no-explicit-any
 function Mypage(props: any) {
   const [memos, setMemos] = useState([]);
+  const [, , removeCookie] = useCookies(['accessToken']);
+
+  const handleLogout = () => {
+    // 로그아웃 버튼을 누르면 실행되는 함수
+    removeCookie('accessToken', { path: '/' }); // 쿠키삭제후
+    alert('로그아웃 되었습니다.');
+    window.location.reload();
+  };
 
   useEffect(() => {
     const token = props.cookie; // 쿠키에서 token 를 꺼내기
@@ -42,8 +50,12 @@ function Mypage(props: any) {
           onClick={props.close}
         />
       </div>
-      <p className="my-page">{props.user}</p>
-      <p className="my-page-id">안녕 {props.user} 입니다</p>
+      <div className="mypage-header">
+        <p className="my-page">{props.user} 입니다</p>
+        <div className="my-page-logout" onClick={handleLogout}>
+          <small>로그아웃</small>
+        </div>
+      </div>
       <hr className="rounded" style={{ marginTop: 15 }} />
 
       <ul style={{ listStyle: 'none', paddingLeft: '0' }}>
