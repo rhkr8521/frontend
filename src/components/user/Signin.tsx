@@ -11,6 +11,7 @@ function Signin(props: any) {
   const [password, setPassword] = useState('');
   const [blankMessage, setBlankMessage] = useState('');
   const [, setCookie] = useCookies(['accessToken']);
+  const [failedLogin, setFailedLogin] = useState('');
 
   const onChangeEmail = (e: any) => {
     setEmail(e.target.value);
@@ -57,10 +58,11 @@ function Signin(props: any) {
         alert('로그인 되었습니다.');
         window.location.reload();
       } else {
-        alert('아이디 비밀번호를 확인해주세요.');
+        setFailedLogin('아이디와 비밀번호를 확인해주세요.');
       }
     } catch (error) {
-      console.error('로그인에에 실패했습니다.', error);
+      setFailedLogin('로그인에 실패했습니다.');
+      console.error('로그인에 실패했습니다.', error);
     }
   };
   return (
@@ -94,6 +96,9 @@ function Signin(props: any) {
           </div>
           <div className={blankMessage ? 'message-active' : ''}>
             {blankMessage}
+          </div>
+          <div className={failedLogin ? 'message-active' : ''}>
+            {failedLogin}
           </div>
           {email && password ? (
             <button

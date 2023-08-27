@@ -11,16 +11,15 @@ function Signup(props: any) {
   const [checkingPassword, setCheckingPassword] = useState('');
   const [message, setMessage] = useState('');
   const [blankMessage, setBlankMessage] = useState('');
+  const [failedSignup, setFailedSignup] = useState('');
 
   const onChangeEmail = (e: { target: { value: SetStateAction<string> } }) => {
     setEmail(e.target.value);
     if (clickedButton === 1) checkingBlank();
-    console.log(clickedButton);
   };
   const onChangeName = (e: { target: { value: SetStateAction<string> } }) => {
     setName(e.target.value);
     if (clickedButton === 1) checkingBlank();
-    console.log(clickedButton);
   };
   const onChangePassword = (e: {
     target: { value: SetStateAction<string> };
@@ -32,7 +31,6 @@ function Signup(props: any) {
       setMessage('');
     }
     if (clickedButton === 1) checkingBlank();
-    console.log(clickedButton);
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -46,7 +44,6 @@ function Signup(props: any) {
       setMessage('');
     }
     if (currentPassword === '') setMessage('');
-    console.log(clickedButton);
   };
   const checkingBlank = () => {
     setClickedButton(1);
@@ -88,9 +85,11 @@ function Signup(props: any) {
         alert('회원이 성공적으로 생성되었습니다. \n다시 로그인 해주세요.');
         window.location.reload();
       } else {
-        alert(result.data.message);
+        setFailedSignup(result.data.message);
+        // alert(result.data.message);
       }
     } catch (error) {
+      setFailedSignup('회원 생성에 실패했습니다.');
       console.error('회원 생성에 실패했습니다.', error);
     }
   };
@@ -146,6 +145,9 @@ function Signup(props: any) {
           <div className={message ? 'message-active' : ''}>{message}</div>
           <div className={blankMessage ? 'message-active' : ''}>
             {blankMessage}
+          </div>
+          <div className={failedSignup ? 'message-active' : ''}>
+            {failedSignup}
           </div>
           {email && name && password && checkingPassword && !message ? (
             <button
