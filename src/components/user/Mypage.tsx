@@ -54,7 +54,7 @@ function Mypage(props: any) {
         />
       </div>
       <div className="mypage-header">
-        <p className="my-page">{props.user} 입니다</p>
+        <p className="my-page">안녕 {props.user} 입니다</p>
         <div className="my-page-logout" onClick={handleLogout}>
           <small>로그아웃</small>
         </div>
@@ -63,19 +63,7 @@ function Mypage(props: any) {
 
       <ul style={{ listStyle: 'none', paddingLeft: '0' }}>
         {memos.map((item: any, index: any) => (
-          <Memo
-            key={index}
-            data={{
-              id: item.id,
-              tag: item.tag,
-              content: item.content,
-              img: item.img,
-              lat: item.lat,
-              lng: item.lng,
-              writer: item.writer,
-              date: item.date,
-            }}
-          />
+          <Memo key={index} data={item} />
         ))}
       </ul>
     </div>
