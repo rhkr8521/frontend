@@ -4,6 +4,7 @@ import './css/user.css';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Signup(props: any) {
+  const [clickedButton, setClickedButton] = useState(0);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
@@ -13,31 +14,42 @@ function Signup(props: any) {
 
   const onChangeEmail = (e: { target: { value: SetStateAction<string> } }) => {
     setEmail(e.target.value);
-    checkingBlank();
+    if (clickedButton === 1) checkingBlank();
+    console.log(clickedButton);
   };
   const onChangeName = (e: { target: { value: SetStateAction<string> } }) => {
     setName(e.target.value);
-    checkingBlank();
+    if (clickedButton === 1) checkingBlank();
+    console.log(clickedButton);
   };
   const onChangePassword = (e: {
     target: { value: SetStateAction<string> };
   }) => {
     setPassword(e.target.value);
-    checkingBlank();
+    if (checkingPassword !== e.target.value && checkingPassword !== '') {
+      setMessage('비밀번호가 다릅니다.');
+    } else {
+      setMessage('');
+    }
+    if (clickedButton === 1) checkingBlank();
+    console.log(clickedButton);
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const onChangeCheckingPassword = (e: { target: { value: any } }) => {
     const currentPassword = e.target.value;
     setCheckingPassword(currentPassword);
+    if (clickedButton === 1) checkingBlank();
     if (password !== currentPassword) {
       setMessage('비밀번호가 다릅니다.');
     } else {
       setMessage('');
     }
     if (currentPassword === '') setMessage('');
+    console.log(clickedButton);
   };
   const checkingBlank = () => {
+    setClickedButton(1);
     if (email && password && checkingPassword && name) {
       setBlankMessage('');
     } else {
@@ -135,7 +147,7 @@ function Signup(props: any) {
           <div className={blankMessage ? 'message-active' : ''}>
             {blankMessage}
           </div>
-          {email && name && password && checkingPassword ? (
+          {email && name && password && checkingPassword && !message ? (
             <button
               type="submit"
               className="signup__btn"

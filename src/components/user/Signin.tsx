@@ -6,6 +6,7 @@ import './css/user.css';
 
 // 로그인
 function Signin(props: any) {
+  const [clickedButton, setClickedButton] = useState(0);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [blankMessage, setBlankMessage] = useState('');
@@ -13,13 +14,14 @@ function Signin(props: any) {
 
   const onChangeEmail = (e: any) => {
     setEmail(e.target.value);
-    checkingBlank();
+    if (clickedButton === 1) checkingBlank();
   };
   const onChangePassword = (e: any) => {
     setPassword(e.target.value);
-    checkingBlank();
+    if (clickedButton === 1) checkingBlank();
   };
   const checkingBlank = () => {
+    setClickedButton(1);
     if (email && password) {
       setBlankMessage('');
     } else {
