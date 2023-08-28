@@ -20,9 +20,9 @@ function SearchModal(props: any) {
       left: '0',
     },
     content: {
-      width: '80%',
+      width: '240px',
       zIndex: '12',
-      maxHeight: '28%',
+      height: '220px',
       position: 'absolute',
       top: '50%',
       left: '50%',

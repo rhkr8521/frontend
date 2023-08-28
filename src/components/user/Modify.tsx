@@ -20,7 +20,7 @@ function Modify(props: any) {
     content: {
       width: '240px',
       zIndex: '21',
-      height: '280px',
+      height: '355px',
       position: 'absolute',
       top: '50%',
       left: '50%',
@@ -35,6 +35,7 @@ function Modify(props: any) {
   console.log(props.data);
   const [tag, setTag] = useState(props.data.tag);
   const [content, setContent] = useState(props.data.content);
+  const [image, setImage] = useState(props.data.img);
   const [cookies] = useCookies(['accessToken']);
 
   const handleTagChange = (e: any) => {
@@ -44,24 +45,30 @@ function Modify(props: any) {
   const handleContentChange = (e: any) => {
     setContent(e.target.value);
   };
-  console.log(tag, content);
+  const handleImageChange = (e: any) => {
+    setImage(e.target.files[0]);
+  };
+  console.log(image);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
+    const formData = new FormData();
+    formData.append('tag', tag);
+    formData.append('content', content);
+    formData.append('lat', props.data.lat);
+    formData.append('lng', props.data.lng);
+    if (image) {
+      formData.append('file', image);
+    }
     try {
       const token = cookies.accessToken; // 쿠키에서 token 를 꺼내기
-      await axios.get(
+      await axios.post(
         `https://mapping.kro.kr:81/api/memo/update/${props.data.id}`,
+        formData,
         {
-          params: {
-            content: content,
-            writer: props.data.writer,
-            lat: props.data.lat,
-            lng: props.data.lng,
-            tag: tag,
-          },
           headers: {
+            'Content-Type': 'multipart/form-data',
             Authorization: `Bearer ${token}`,
           },
         },
@@ -101,6 +108,14 @@ function Modify(props: any) {
                 name="content"
                 value={content}
                 onChange={handleContentChange}
+              />
+            </p>
+            <p>
+              이미지:
+              <input
+                type="file"
+                accept="image/*"
+                onChange={handleImageChange}
               />
             </p>
             <div className="buttons">
