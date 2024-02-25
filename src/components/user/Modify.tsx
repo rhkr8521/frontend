@@ -99,6 +99,8 @@ function Modify(props: any) {
                 <option value="쓰레기통">쓰레기통</option>
                 <option value="화장실">화장실</option>
                 <option value="공사중">공사중</option>
+                <option value="음식점">음식점</option>
+                <option value="카페">카페</option>
               </select>
             </p>
             <p>
