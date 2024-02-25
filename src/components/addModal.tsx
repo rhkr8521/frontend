@@ -51,11 +51,14 @@ function AddModal(props: any) {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
+    const ipData = await fetch('https://geolocation-db.com/json/');
+    const locationip = await ipData.json();
     const formData = new FormData();
     formData.append('tag', tag);
     formData.append('content', content);
     formData.append('lat', props.data.lat);
     formData.append('lng', props.data.lng);
+    formData.append('ip', locationip.IPv4);
     if (image) {
       formData.append('file', image);
     }
