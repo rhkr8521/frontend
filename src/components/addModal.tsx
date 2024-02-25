@@ -45,7 +45,15 @@ function AddModal(props: any) {
   };
 
   const handleImageChange = (e: any) => {
-    setImage(e.target.files[0]);
+    const file = e.target.files[0];
+    const allowedExtensions = /(\.jpg|\.jpeg|\.png)$/i;
+
+    if (file && !allowedExtensions.exec(file.name)) {
+      alert('이미지 파일만 업로드 가능합니다 :(');
+      e.target.value = ''; // 파일 선택을 리셋합니다.
+    } else {
+      setImage(file);
+    }
   };
 
   const handleSubmit = async (e: any) => {
