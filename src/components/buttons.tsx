@@ -26,8 +26,35 @@ function Buttons(props: any) {
     setSearchBtn((prev) => !prev);
   };
 
+  const clickReloadBtn = () => {
+    window.location.reload(); // Reload the page
+  };
+
   return (
     <div>
+      {toggle ? (
+        // 추가 버튼 활성화
+        <button
+          className="customButton"
+          style={{
+            bottom: '14em',
+            background:
+              'url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/img_search.png) no-repeat -233px -350px',
+          }}
+          onClick={clickReloadBtn}
+        ></button>
+      ) : (
+        // 추가 버튼 비활성화
+        <button
+          className="customButton"
+          style={{
+            bottom: '14em',
+            background:
+              'url(//t1.daumcdn.net/localimg/localimages/07/2018/pc/common/img_search.png) no-repeat -233px -450px',
+          }}
+          onClick={clickReloadBtn}
+        ></button>
+      )}
       {toggle ? (
         // 추가 버튼 활성화
         <button
